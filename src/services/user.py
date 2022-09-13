@@ -430,7 +430,7 @@ class UserService(BaseService):
     def find_user_by_email_here(self, email):
         user = self.model.get_by_email(email)
         if not user:
-            return user_pb2.FindUserByEmailResponse()
+            return user_pb2.FindUserByEmailResponse(lst_user=[])
         return user_pb2.FindUserByEmailResponse(lst_user=[
             user_pb2.UserInfoResponse(
                 id=user.id,
