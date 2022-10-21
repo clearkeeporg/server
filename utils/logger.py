@@ -48,7 +48,7 @@ def setup_logging(log_file_name):
     # when='midnight',
     # Use when='S' and interval=3 to test rotating logs,
     # use backupCount=10 when need to delete old logs
-    timed_rotating_file_handler = TimedRotatingFileHandler(log_file_name, when='H', interval=1, backupCount=0,
+    timed_rotating_file_handler = TimedRotatingFileHandler(log_file_name, when='H', interval=1, backupCount=10,
                                                            encoding='utf8')
     timed_rotating_file_handler.suffix = "%Y%m%dT%H-%M-%S.log"  # Force .log file extension
     timed_rotating_file_handler.extMatch = re.compile(r"^.*\d{2}-\d{2}-\d{2}.log$")  # For auto-delete old logs
