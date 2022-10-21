@@ -43,10 +43,9 @@ services:
       - '../configs/keycloak:/etc/x509/https'
     ports:
       - 8080:8080
-      - 8443:8443
+      - 15001:8443
     depends_on:
       - postgres
-
   prod_webrtc:
     image: phuongvmodev/janus-webrtc-gateway-docker
     restart: unless-stopped
@@ -93,7 +92,6 @@ services:
       - 25001:25001
     depends_on:
       - grpc
-
   coturn:
     image: instrumentisto/coturn:4.5.2
     restart: unless-stopped
